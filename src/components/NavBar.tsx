@@ -22,7 +22,6 @@ export const NavBar: FC = () => {
   }, [])
 
   const getStatusLinkClass = (linkName:string):string => {
-    console.log('executed');
     return linkName === activeLink ? 'active navbar-link' : 'navbar-link';
   }
 

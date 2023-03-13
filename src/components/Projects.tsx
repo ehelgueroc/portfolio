@@ -54,7 +54,7 @@ export const Projects = () => {
           <h2>Projects</h2>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quo minus explicabo saepe ea sequi consectetur.</p>
           <Tab.Container id="projects-tabs" defaultActiveKey="first">
-            <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center">
+            <Nav variant="pills" id="pills-tab" className="nav-pills mb-5 justify-content-center align-items-center">
               <Nav.Item>
                 <Nav.Link eventKey="first">Option 1</Nav.Link>
               </Nav.Item>

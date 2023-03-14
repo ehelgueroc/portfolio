@@ -26,6 +26,30 @@ export const Contact = () => {
         setFormDetails({...formDetails, [fieldName]: e.target.value});
     }
 
+    const handleSubmit = async (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        setSubmitText("Submitting....")
+        const response: any = await fetch("http://localhost:5000", {
+            method: "POST",
+            headers: {
+                "Content-Type": "Application/json;charset=utf-8",
+            },
+            body: JSON.stringify(formDetails)
+        })
+        setSubmitText("Send");
+        let result = response.json();
+        setFormDetails(formInitialValues);
+        if(result?.code === 200){
+            setStatus({
+                success: true, message: "Message was sent"
+            })
+        }else{
+            setStatus({
+                success: false, message: "Message failed"
+            })
+        }
+    }
+
   return (
     <section className="contact" id="connect">
         <Container>
@@ -36,7 +60,7 @@ export const Contact = () => {
                 <Col md={6}>
                 <h2>Contact</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus error maxime nam quisquam minus, inventore vero itaque officiis eius nihil eos quod, aliquid quaerat nulla esse quasi ipsum debitis aperiam?</p>
-                    <form action="">
+                    <form onSubmit={handleSubmit}>
                         <Row>
                             <Col sm={6} className="px-1">
                                 <input type="text" name="firstName" value={formDetails.firstName} placeholder="First name" onChange={onFormUpdate}/>

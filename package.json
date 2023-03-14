@@ -11,6 +11,9 @@
   "dependencies": {
     "@types/react-bootstrap": "^0.32.32",
     "bootstrap": "^5.2.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
